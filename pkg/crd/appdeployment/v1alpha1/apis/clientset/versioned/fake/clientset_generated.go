@@ -76,7 +76,7 @@ func (c *Clientset) Tracker() testing.ObjectTracker {
 
 var (
 	_ clientset.Interface = &Clientset{}
-	_ testing.FakeClient  = &Clientset{}
+	//_ testing.FakeClient  = &Clientset{}
 )
 
 // AppdeploymentV1alpha1 retrieves the AppdeploymentV1alpha1Client

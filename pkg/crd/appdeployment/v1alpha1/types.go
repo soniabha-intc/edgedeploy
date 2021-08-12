@@ -31,7 +31,7 @@ type AppDeploymentSpec struct {
 	ChartName string `json:"chartName"`
 	// ChartVersion is the version of the helm chart to deploy.
 	ChartVersion string `json:"chartVersion"`
-	// PodList is key/value pairs of helm chart values.yaml
+	// Parameters is key/value pairs of helm chart values.yaml
 	Parameters map[string]string `json:"parameters"`
 	// fqdn is optional for app, If present A record is added into EdgeDNS
 	Fqdns map[string]string `json:"fqdns"`
