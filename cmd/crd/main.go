@@ -14,21 +14,29 @@ import (
 	apiextensionsclient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"k8s.io/client-go/tools/clientcmd"
+	"k8s.io/client-go/rest"
 )
 
 func main() {
 	ctx := types.GetCtx()
-	cfg := config.GetConfig()
-	kubeconfigPath := cfg.GetKubeconfigPath()
 
-	// Use kubeconfig to create client config.
-	clientConfig, err := clientcmd.BuildConfigFromFlags("", kubeconfigPath)
+	cfg := config.GetConfig()
+	/*
+		kubeconfigPath := cfg.GetKubeconfigPath()
+
+		// Use kubeconfig to create client config.
+		clientConfig, err := clientcmd.BuildConfigFromFlags("", kubeconfigPath)
+		if err != nil {
+			panic(err)
+		}
+	*/
+	// creates the in-cluster config
+	config, err := rest.InClusterConfig()
 	if err != nil {
-		panic(err)
+		panic(err.Error())
 	}
 
-	apiextensionsClientSet, err := apiextensionsclient.NewForConfig(clientConfig)
+	apiextensionsClientSet, err := apiextensionsclient.NewForConfig(config)
 	if err != nil {
 		panic(err)
 	}
@@ -39,7 +47,7 @@ func main() {
 	}
 
 	// Create a CRD client interface for Jinghzhu v1.
-	crdClient, err := appdeployclient.NewClient(ctx, kubeconfigPath, cfg.GetCRDNamespace())
+	crdClient, err := appdeployclient.NewClient(ctx, config, cfg.GetCRDNamespace())
 	if err != nil {
 		panic(err)
 	}

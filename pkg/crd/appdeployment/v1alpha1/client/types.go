@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"sync"
 
+	"github.com/soniabha-intc/edgedeploy/pkg/config"
 	appdeploy "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1"
 	appdeploymentclientset "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned"
+	"k8s.io/client-go/rest"
 
-	"github.com/soniabha-intc/edgedeploy/pkg/config"
 	"github.com/soniabha-intc/edgedeploy/pkg/types"
-	"k8s.io/client-go/tools/clientcmd"
 )
 
 const (
@@ -66,12 +66,12 @@ func (c *Client) GetContext() context.Context {
 }
 
 // CreateAppDeploymentClientset returns the clientset for CRD AppDeployment v1alpha1 in singleton way.
-func CreateAppDeploymentClientset(kubeconfigPath string) (*appdeploymentclientset.Clientset, error) {
-	restConfig, err := clientcmd.BuildConfigFromFlags("", kubeconfigPath)
+func CreateAppDeploymentClientset(config *rest.Config) (*appdeploymentclientset.Clientset, error) {
+	/*restConfig, err := clientcmd.BuildConfigFromFlags("", kubeconfigPath)
 	if err != nil {
 		return nil, err
-	}
-	clientset, err := appdeploymentclientset.NewForConfig(restConfig)
+	}*/
+	clientset, err := appdeploymentclientset.NewForConfig(config)
 	if err != nil {
 		return nil, err
 	}
@@ -80,8 +80,8 @@ func CreateAppDeploymentClientset(kubeconfigPath string) (*appdeploymentclientse
 }
 
 // NewClient accepts kubeconfig path and namespace. Return the API client interface for CRD Jinghzhu v1.
-func NewClient(ctx context.Context, kubeconfigPath, namespace string) (*Client, error) {
-	clientset, err := CreateAppDeploymentClientset(kubeconfigPath)
+func NewClient(ctx context.Context, config *rest.Config, namespace string) (*Client, error) {
+	clientset, err := CreateAppDeploymentClientset(config)
 	if err != nil {
 		fmt.Printf("Fail to init CRD API clientset for Jinghuazhu v1: %+v\n", err.Error())
 
@@ -101,8 +101,13 @@ func NewClient(ctx context.Context, kubeconfigPath, namespace string) (*Client, 
 // is available at default path and the target CRD namespace is the default namespace.
 func GetDefaultClient() *Client {
 	onceDefaultAppdeployV1Alpha1Client.Do(func() {
+
+		kconfig, err := rest.InClusterConfig()
+		if err != nil {
+			panic(err.Error())
+		}
 		cfg := config.GetConfig()
-		clientset, err := CreateAppDeploymentClientset(cfg.GetKubeconfigPath())
+		clientset, err := CreateAppDeploymentClientset(kconfig)
 		if err != nil {
 			panic("Fail to init default CRD API client for AppDeployment v1alpha1: " + err.Error())
 		}
