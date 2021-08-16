@@ -69,6 +69,8 @@ func main() {
 			Message: "Created but not processed yet",
 		},
 	}
+	eiiInstance.Spec.Parameters["namespace"] = "app_namespace"
+	eiiInstance.Spec.Fqdns["name"] = "app_fqdn"
 	result, err := crdClient.CreateDefault(eiiInstance)
 	if err != nil && apierrors.IsAlreadyExists(err) {
 		fmt.Printf("ALREADY EXISTS: %#v\n", result)

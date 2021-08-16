@@ -42,21 +42,21 @@ func CreateCustomResourceDefinition(clientSet apiextensionsclientset.Interface) 
 							Properties: map[string]apiextensionsv1beta1.JSONSchemaProps{
 								"ChartName":    {Type: "string", Format: "string"},
 								"ChartVersion": {Type: "string", Format: "string"},
-								/*
-									"Parameters": {
-										Type: "array",
-										Items: &apiextensionsv1beta1.JSONSchemaPropsOrArray{
-											Schema: &apiextensionsv1beta1.JSONSchemaProps{Type: "string"},
-										},
-									},*/
+								"Parameters": {
+										Type: "object",
+									},
+								"Fqdns": {
+									Type: "object",
+								},
 							},
 							//Required: []string{"ChartName"},
 						},
 					},
 				},
 			},
-		},
-	}
+	},
+}
+
 	ctx := types.GetCtx()
 	_, err := clientSet.ApiextensionsV1beta1().CustomResourceDefinitions().Create(ctx, crd, metav1.CreateOptions{})
 	if err == nil {
