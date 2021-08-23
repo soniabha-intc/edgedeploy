@@ -21,7 +21,7 @@ package versioned
 import (
 	"fmt"
 
-	appdeploymentv1alpha1 "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/typed/appdeployment/v1alpha1"
+	appdeploymentv1alpha1 "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/typed/appdeployment/v1alpha1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

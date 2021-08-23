@@ -19,9 +19,9 @@ limitations under the License.
 package fake
 
 import (
-	clientset "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned"
-	appdeploymentv1alpha1 "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/typed/appdeployment/v1alpha1"
-	fakeappdeploymentv1alpha1 "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/typed/appdeployment/v1alpha1/fake"
+	clientset "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned"
+	appdeploymentv1alpha1 "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/typed/appdeployment/v1alpha1"
+	fakeappdeploymentv1alpha1 "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/typed/appdeployment/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

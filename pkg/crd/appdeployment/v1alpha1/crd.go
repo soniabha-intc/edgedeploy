@@ -5,13 +5,13 @@ import (
 	"reflect"
 	"time"
 
-	appdeploy "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment"
+	appdeploy "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment"
 	apiextensionsv1beta1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1"
 	apiextensionsclientset "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/soniabha-intc/agents/edgedeploy/pkg/types"
+	"github.com/soniabha-intc/edgedeploy/pkg/types"
 	"k8s.io/apimachinery/pkg/util/errors"
 	"k8s.io/apimachinery/pkg/util/wait"
 )

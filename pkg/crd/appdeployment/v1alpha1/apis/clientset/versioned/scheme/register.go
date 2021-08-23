@@ -19,7 +19,7 @@ limitations under the License.
 package scheme
 
 import (
-	appdeploymentv1alpha1 "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1"
+	appdeploymentv1alpha1 "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

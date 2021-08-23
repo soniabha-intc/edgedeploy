@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/soniabha-intc/agents/edgedeploy/pkg/config"
-	appdeploy "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1"
-	appdeploymentclientset "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned"
+	"github.com/soniabha-intc/edgedeploy/pkg/config"
+	appdeploy "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1"
+	appdeploymentclientset "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned"
 	"k8s.io/client-go/rest"
 
-	"github.com/soniabha-intc/agents/edgedeploy/pkg/types"
+	"github.com/soniabha-intc/edgedeploy/pkg/types"
 )
 
 const (

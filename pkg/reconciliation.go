@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/soniabha-intc/agents/edgedeploy/pkg/config"
+	"github.com/soniabha-intc/edgedeploy/pkg/config"
 )
 
 type EdgeReconcile struct {

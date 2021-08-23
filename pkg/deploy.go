@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/soniabha-intc/agents/edgedeploy/pkg/config"
-	"github.com/soniabha-intc/agents/edgedeploy/pkg/types"
+	"github.com/soniabha-intc/edgedeploy/pkg/config"
+	"github.com/soniabha-intc/edgedeploy/pkg/types"
 
-	appdeploy "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1"
-	appdeployclient "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1/client"
+	appdeploy "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1"
+	appdeployclient "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/client"
 
 	apiextensionsclient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"

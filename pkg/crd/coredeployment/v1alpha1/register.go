@@ -1,7 +1,7 @@
 package v1alpha1
 
 import (
-	coredeploy "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/coredeployment"
+	coredeploy "github.com/soniabha-intc/edgedeploy/pkg/crd/coredeployment"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
 	"k8s.io/apimachinery/pkg/runtime"

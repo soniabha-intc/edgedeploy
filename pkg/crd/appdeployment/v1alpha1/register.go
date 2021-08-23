@@ -1,7 +1,7 @@
 package v1alpha1
 
 import (
-	appdeploy "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment"
+	appdeploy "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
 	"k8s.io/apimachinery/pkg/runtime"

@@ -8,8 +8,8 @@ import (
 	"syscall"
 	"time"
 
-	deploy "github.com/soniabha-intc/agents/edgedeploy/pkg"
-	"github.com/soniabha-intc/agents/edgedeploy/pkg/config"
+	deploy "github.com/soniabha-intc/edgedeploy/pkg"
+	"github.com/soniabha-intc/edgedeploy/pkg/config"
 	"k8s.io/client-go/rest"
 )
 

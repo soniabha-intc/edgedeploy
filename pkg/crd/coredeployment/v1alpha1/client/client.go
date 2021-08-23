@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"time"
 
-	appdeployment "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1"
+	appdeployment "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	apimachinerytypes "k8s.io/apimachinery/pkg/types"
 
-	"github.com/soniabha-intc/agents/edgedeploy/pkg/types"
+	"github.com/soniabha-intc/edgedeploy/pkg/types"
 	"k8s.io/apimachinery/pkg/util/wait"
 )
 
