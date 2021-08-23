@@ -20,7 +20,7 @@ const (
 	// CRDName is the CRD name for CoreDeployment.
 	CRDName string = Plural + "." + coredeploy.GroupName
 	// ShortName is the short alias for the CRD.
-	ShortName string = "ad"
+	ShortName string = "cd"
 )
 
 var (

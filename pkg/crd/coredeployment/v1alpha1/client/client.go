@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	appdeployment "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1"
+	coredeployment "github.com/soniabha-intc/edgedeploy/pkg/crd/coredeployment/v1alpha1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	apimachinerytypes "k8s.io/apimachinery/pkg/types"
 
@@ -27,8 +27,8 @@ func (c *Client) WaitForInstanceProcessed(name string) error {
 }
 
 // Create post an instance of CRD into Kubernetes with given create options.
-func (c *Client) Create(obj *appdeployment.AppDeployment, opts metav1.CreateOptions) (*appdeployment.AppDeployment, error) {
-	return c.clientset.AppdeploymentV1alpha1().AppDeployments(c.namespace).Create(c.GetContext(), obj, opts)
+func (c *Client) Create(obj *coredeployment.CoreDeployment, opts metav1.CreateOptions) (*coredeployment.CoreDeployment, error) {
+	return c.clientset.CoredeploymentV1alpha1().CoreDeployments(c.namespace).Create(c.GetContext(), obj, opts)
 }
 
 // CreateDefault post an instance of CRD into Kubernetes without create options.

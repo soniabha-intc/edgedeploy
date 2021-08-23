@@ -13,7 +13,7 @@ import (
 // +genclient:noStatus
 // +k8s:deepcopy-gen=true
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-// +resource:path=appdeployment
+// +resource:path=coredeployment
 type CoreDeployment struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object's metadata.
@@ -44,7 +44,7 @@ type CoreDeploymentStatus struct {
 // CoreDeploymentList is the list of AppDeployment.
 // +k8s:deepcopy-gen=true
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-// +resource:path=appdeployment
+// +resource:path=coredeployment
 type CoreDeploymentList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata.
