@@ -7,7 +7,7 @@ import (
 )
 
 // CoreDeployment is the CRD. Use this command to generate deepcopy for it:
-// ./k8s.io/code-generator/generate-groups.sh all github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis github.com/soniabha-intc/edgedeploy/pkg/crd "appdeployment:v1alpha1"
+// ./k8s.io/code-generator/generate-groups.sh all github.com/soniabha-intc/edgedeploy/pkg/crd/coredeployment/v1alpha1/apis github.com/soniabha-intc/edgedeploy/pkg/crd "coredeployment:v1alpha1"
 // For more details of code-generator, please visit https://github.com/kubernetes/code-generator
 // +genclient
 // +genclient:noStatus
