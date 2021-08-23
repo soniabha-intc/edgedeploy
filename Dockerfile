@@ -18,7 +18,7 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN echo 'Set disable_coredump false' >> /etc/sudo.conf
 
 USER $username
-WORKDIR $user_dir
+WORKDIR /home/edgedeploy
 #WORKDIR /root/
 COPY ./edgedeploy ./edgedeploy
 CMD ["sleep", "100000"]

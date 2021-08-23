@@ -32,10 +32,18 @@ spec:
       namespace: "{{ .Values.namespace }}"
     spec:  
       serviceAccountName: "{{ .Values.service_account }}"    
+      volumes:
+       - name: configs-edgedeploy
+         configMap:
+            name: "{{ .Values.configmap.edgedeploy }}"
       containers:
         - name: edgedeploy-container
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          volumeMounts:
+            - name: configs-edgedeploy
+              mountPath: /home/edgedeploy/configs/edgedeploy.json
+              subPath: edgedeploy.json
           securityContext:
             privileged: false
           env:

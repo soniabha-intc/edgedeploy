@@ -1,7 +1,7 @@
 package v1alpha1
 
 import (
-	appdeploy "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment"
+	coredeploy "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/coredeployment"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
 	"k8s.io/apimachinery/pkg/runtime"
@@ -10,15 +10,15 @@ import (
 
 const (
 	// Kind is normally the CamelCased singular type. The resource manifest uses this.
-	Kind string = "AppDeployment"
+	Kind string = "CoreDeployment"
 	// GroupVersion is the version.
 	GroupVersion string = "v1alpha1"
 	// Plural is the plural name used in /apis/<group>/<version>/<plural>
-	Plural string = "appdeployments"
+	Plural string = "coredeployments"
 	// Singular is used as an alias on kubectl for display.
-	Singular string = "appdeployment"
-	// CRDName is the CRD name for AppDeployment.
-	CRDName string = Plural + "." + appdeploy.GroupName
+	Singular string = "coredeployment"
+	// CRDName is the CRD name for CoreDeployment.
+	CRDName string = Plural + "." + coredeploy.GroupName
 	// ShortName is the short alias for the CRD.
 	ShortName string = "ad"
 )
@@ -26,7 +26,7 @@ const (
 var (
 	// SchemeGroupVersion is the group version used to register these objects.
 	SchemeGroupVersion = schema.GroupVersion{
-		Group:   appdeploy.GroupName,
+		Group:   coredeploy.GroupName,
 		Version: GroupVersion,
 	}
 	// SchemeBuilder is the apimachinery scheme builder
@@ -43,8 +43,8 @@ func Resource(resource string) schema.GroupResource {
 // addKnownTypes adds the set of types defined in this package to the supplied scheme.
 func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
-		&AppDeployment{},
-		&AppDeploymentList{},
+		&CoreDeployment{},
+		&CoreDeploymentList{},
 	)
 	metav1.AddToGroupVersion(scheme, SchemeGroupVersion)
 

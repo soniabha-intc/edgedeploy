@@ -19,7 +19,7 @@ limitations under the License.
 package fake
 
 import (
-	v1alpha1 "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/typed/appdeployment/v1alpha1"
+	v1alpha1 "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/typed/appdeployment/v1alpha1"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )

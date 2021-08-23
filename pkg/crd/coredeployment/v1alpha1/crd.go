@@ -16,9 +16,9 @@ import (
 	"k8s.io/apimachinery/pkg/util/wait"
 )
 
-// CreateCustomResourceDefinitionAppDeploy creates the CRD and add it into Kubernetes. If there is error,
+// CreateCustomResourceDefinitionCoreDeploy creates the CRD and add it into Kubernetes. If there is error,
 // it will do some clean up.
-func CreateCustomResourceDefinitionAppDeploy(clientSet apiextensionsclientset.Interface) (*apiextensionsv1beta1.CustomResourceDefinition, error) {
+func CreateCustomResourceDefinitionCoreDeploy(clientSet apiextensionsclientset.Interface) (*apiextensionsv1beta1.CustomResourceDefinition, error) {
 	crd := &apiextensionsv1beta1.CustomResourceDefinition{
 		ObjectMeta: metav1.ObjectMeta{
 			Name: CRDName,
@@ -30,7 +30,7 @@ func CreateCustomResourceDefinitionAppDeploy(clientSet apiextensionsclientset.In
 			Names: apiextensionsv1beta1.CustomResourceDefinitionNames{
 				Plural:     Plural,
 				Singular:   Singular,
-				Kind:       reflect.TypeOf(AppDeployment{}).Name(),
+				Kind:       reflect.TypeOf(CoreDeployment{}).Name(),
 				ShortNames: []string{ShortName},
 			},
 			Validation: &apiextensionsv1beta1.CustomResourceValidation{
@@ -45,9 +45,6 @@ func CreateCustomResourceDefinitionAppDeploy(clientSet apiextensionsclientset.In
 								"Parameters": {
 									Type: "object",
 								},
-								"Fqdns": {
-									Type: "object",
-								},
 							},
 							//Required: []string{"ChartName"}, // TODO to check which params to be made required
 						},
@@ -60,11 +57,11 @@ func CreateCustomResourceDefinitionAppDeploy(clientSet apiextensionsclientset.In
 	ctx := types.GetCtx()
 	_, err := clientSet.ApiextensionsV1beta1().CustomResourceDefinitions().Create(ctx, crd, metav1.CreateOptions{})
 	if err == nil {
-		fmt.Println("CRD AppDeployment is created")
+		fmt.Println("CRD CoreDeployment is created")
 	} else if apierrors.IsAlreadyExists(err) {
-		fmt.Println("CRD AppDeployment already exists")
+		fmt.Println("CRD CoreDeployment already exists")
 	} else {
-		fmt.Printf("Fail to create CRD AppDeployment: %+v\n", err)
+		fmt.Printf("Fail to create CRD CoreDeployment: %+v\n", err)
 
 		return nil, err
 	}
@@ -73,7 +70,7 @@ func CreateCustomResourceDefinitionAppDeploy(clientSet apiextensionsclientset.In
 	err = wait.Poll(5*time.Second, 60*time.Second, func() (bool, error) {
 		crd, err = clientSet.ApiextensionsV1beta1().CustomResourceDefinitions().Get(ctx, CRDName, metav1.GetOptions{})
 		if err != nil {
-			fmt.Printf("Fail to wait for CRD AppDeployment creation: %+v\n", err)
+			fmt.Printf("Fail to wait for CRD CoreDeployment creation: %+v\n", err)
 
 			return false, err
 		}
@@ -85,7 +82,7 @@ func CreateCustomResourceDefinitionAppDeploy(clientSet apiextensionsclientset.In
 				}
 			case apiextensionsv1beta1.NamesAccepted:
 				if cond.Status == apiextensionsv1beta1.ConditionFalse {
-					fmt.Printf("Name conflict while wait for CRD AppDeployment creation: %s, %+v\n", cond.Reason, err)
+					fmt.Printf("Name conflict while wait for CRD CoreDeployment creation: %s, %+v\n", cond.Reason, err)
 				}
 			}
 		}
@@ -98,7 +95,7 @@ func CreateCustomResourceDefinitionAppDeploy(clientSet apiextensionsclientset.In
 		fmt.Println("Try to cleanup")
 		deleteErr := clientSet.ApiextensionsV1beta1().CustomResourceDefinitions().Delete(ctx, CRDName, metav1.DeleteOptions{})
 		if deleteErr != nil {
-			fmt.Printf("Fail to delete CRD AppDeployment: %+v\n", deleteErr)
+			fmt.Printf("Fail to delete CRD CoreDeployment: %+v\n", deleteErr)
 
 			return nil, errors.NewAggregate([]error{err, deleteErr})
 		}

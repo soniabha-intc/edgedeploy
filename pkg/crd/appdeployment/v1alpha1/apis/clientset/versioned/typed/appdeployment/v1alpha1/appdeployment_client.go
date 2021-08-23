@@ -19,8 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
-	v1alpha1 "github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1"
-	"github.com/soniabha-intc/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/scheme"
+	v1alpha1 "github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1"
+	"github.com/soniabha-intc/agents/edgedeploy/pkg/crd/appdeployment/v1alpha1/apis/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 
