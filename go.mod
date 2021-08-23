@@ -1,4 +1,4 @@
-module github.com/soniabha-intc/agents/edgedeploy
+module github.com/soniabha-intc/edgedeploy
 
 go 1.15
 
