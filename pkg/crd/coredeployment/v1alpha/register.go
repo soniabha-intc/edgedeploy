@@ -1,4 +1,4 @@
-package v1alpha1
+package v1alpha
 
 import (
 	coredeploy "github.com/soniabha-intc/edgedeploy/pkg/crd/coredeployment"
@@ -12,7 +12,7 @@ const (
 	// Kind is normally the CamelCased singular type. The resource manifest uses this.
 	Kind string = "CoreDeployment"
 	// GroupVersion is the version.
-	GroupVersion string = "v1alpha1"
+	GroupVersion string = "v1alpha"
 	// Plural is the plural name used in /apis/<group>/<version>/<plural>
 	Plural string = "coredeployments"
 	// Singular is used as an alias on kubectl for display.

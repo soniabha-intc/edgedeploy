@@ -7,8 +7,8 @@ import (
 	"github.com/soniabha-intc/edgedeploy/pkg/config"
 	"github.com/soniabha-intc/edgedeploy/pkg/types"
 
-	coredeploy "github.com/soniabha-intc/edgedeploy/pkg/crd/coredeployment/v1alpha1"
-	coredeployclient "github.com/soniabha-intc/edgedeploy/pkg/crd/coredeployment/v1alpha1/client"
+	coredeploy "github.com/soniabha-intc/edgedeploy/pkg/crd/coredeployment/v1alpha"
+	coredeployclient "github.com/soniabha-intc/edgedeploy/pkg/crd/coredeployment/v1alpha/client"
 
 	apiextensionsclient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
