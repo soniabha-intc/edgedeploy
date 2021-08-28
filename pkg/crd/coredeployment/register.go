@@ -11,9 +11,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package example
+package coredeployment
 
 // GroupName is the group name used in this package
 const (
-	GroupName = "example.com"
+	GroupName = "coredeployment.io"
 )
