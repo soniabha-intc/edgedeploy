@@ -35,7 +35,7 @@ func Reconcile(ctx context.Context, done chan bool, ticker *time.Ticker) {
 			return
 		case t := <-ticker.C:
 			fmt.Println("Tick at", t)
-			GRPCReplacement(ctx)
+			GRPCCoreReplacement(ctx)
 			//
 		}
 	}

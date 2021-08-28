@@ -40,7 +40,13 @@ func main() {
 
 	err = deploy.AppCRD(parenCtx, kubeconfig)
 	if err != nil {
-		fmt.Println("CRD deployment failed")
+		fmt.Println("CRD AppDeployment failed")
+		return
+	}
+
+	err = deploy.CoreCRD(parenCtx, kubeconfig)
+	if err != nil {
+		fmt.Println("CRD CoreDeployment failed")
 		return
 	}
 
