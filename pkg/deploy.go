@@ -76,15 +76,15 @@ func GRPCReplacement(parentCtx context.Context) error {
 
 	}
 	// Delete the App Deployment CR
+	/*
+		for key := range ApplicationsDeployed.appsDeployed {
 
-	for key := range ApplicationsDeployed.appsDeployed {
-
-		err = DeleteAppDeploymentCR(key)
-		if err != nil {
-			fmt.Printf("Deleting CR %s failed", key)
-			return err
-		}
-	}
+			err = DeleteAppDeploymentCR(key)
+			if err != nil {
+				fmt.Printf("Deleting CR %s failed", key)
+				return err
+			}
+		}*/
 	return nil
 }
 

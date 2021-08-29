@@ -26,7 +26,7 @@ type CoresDeployed struct {
 // CoresDeployed stores the Apps which are deployed in the cluster and the count
 var CoreDeployed CoresDeployed
 
-// AppCRD invokes the AppDeployment CRD creation and CR CRUD
+// CoreCRD invokes the AppDeployment CRD creation and CR CRUD
 func CoreCRD(parentCtx context.Context, kubeconfig *rest.Config) error {
 
 	//ctx := types.GetCtx()
@@ -76,15 +76,15 @@ func GRPCCoreReplacement(parentCtx context.Context) error {
 
 	}
 	// Delete the App Deployment CR
+	/*
+		for key := range CoreDeployed.coresDeployed {
 
-	for key := range CoreDeployed.coresDeployed {
-
-		err = DeleteCoreDeploymentCR(key)
-		if err != nil {
-			fmt.Printf("Deleting CR %s failed", key)
-			return err
-		}
-	}
+			err = DeleteCoreDeploymentCR(key)
+			if err != nil {
+				fmt.Printf("Deleting CR %s failed", key)
+				return err
+			}
+		}*/
 	return nil
 }
 

@@ -15,5 +15,5 @@ package coredeployment
 
 // GroupName is the group name used in this package
 const (
-	GroupName = "coredeployment.io"
+	GroupName = "smartedge.intel.com"
 )

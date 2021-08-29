@@ -54,6 +54,6 @@ func main() {
 	deploy.StartReconcileLoop(parenCtx)
 	//done := make(chan bool)
 	//go deploy.Reconcile(parenCtx, done, ticker)
-	time.Sleep(20 * time.Second)
+	time.Sleep(9 * time.Second)
 	deploy.DeployReconcile.Done <- true
 }
