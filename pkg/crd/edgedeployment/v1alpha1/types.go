@@ -18,10 +18,10 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// CoreDeployment is the CRD. Use this command to generate deepcopy for it:
+// EdgeDeployment is the CRD. Use this command to generate deepcopy for it:
 // ./k8s.io/code-generator/generate-groups.sh all
-// github.com/intel-innersource/applications.services.smart-edge-open.edge-agents/edgedeploy/pkg/crd/coredeployment/v1alpha1/apis
-// github.com/intel-innersource/applications.services.smart-edge-open.edge-agents/edgedeploy/pkg/crd "coredeployment:v1alpha1"
+// github.com/soniabha-intc/edgedeploy/pkg/crd/edgedeployment/v1alpha1/apis
+// github.com/soniabha-intc/edgedeploy/pkg/crd "edgedeployment:v1alpha1"
 // For more details of code-generator, please visit https://github.com/kubernetes/code-generator
 // +genclient
 // +genclient:noStatus
