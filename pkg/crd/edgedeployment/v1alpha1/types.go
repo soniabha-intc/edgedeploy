@@ -50,10 +50,11 @@ type EdgeDeploymentSpec struct {
 	ChartValues map[string]string `json:"chartValues"`
 }
 
-// EdgeDeploymentStatus describes the lifecycle status of EdgeDeployment.
+// EdgeDeploymentStatus describes the status of EdgeDeployment.
 type EdgeDeploymentStatus struct {
-	State   string `json:"state"`
-	Message string `json:"message"`
+	State     int    `json:"state"`
+	Notes     string `json:"notes"`
+	Resources string `json:"resources"`
 }
 
 // EdgeDeploymentList is the list of EdgeDeployment.
@@ -69,12 +70,12 @@ type EdgeDeploymentList struct {
 
 func (j *EdgeDeployment) String() string {
 	return fmt.Sprintf(
-		"\tName = %s\n\tResource Version = %s\n\tChartName = %s\n\tChartVersion = %s\n\tState = %s\n\tMessage = %s\n\t",
+		"\tName = %s\n\tResource Version = %s\n\tChartName = %s\n\tChartVersion = %s\n\tState = %d\n\tNotes = %s\n\t",
 		j.GetName(),
 		j.GetResourceVersion(),
 		j.Spec.ReleaseName,
 		j.Spec.ChartURI,
 		j.Status.State,
-		j.Status.Message,
+		j.Status.Notes,
 	)
 }
